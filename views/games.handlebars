@@ -3,22 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman</title>
-    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/master.css">
   </head>
   <body>
     <header>
     <h1>Welcome to your game of Hangman</h1>
-    <p>The rules are easy! You have to guess the word by imputting one letter at a time. You only have 8 lives, use em up and you lose. Good Luck.</p>
+    <p>The rules are easy! You have to guess the word by imputting one letter at a time. You only have {{#turnCount}}{{.}}{{/turnCount}}
+   lives, use em up and you lose. Good Luck.</p>
+   <div class="errors">
+        {{error}}
+      </div>
     </header>
     <div id="wordContainer">
             {{#blankArray}}
             <h2 id="word">{{.}}</h2>
             {{/blankArray}}
-          </div><div id="lives"><h1>LIVES LEFT: </h1>{{#turnCount}}{{.}}{{/turnCount}}</div>
-          <form action="/playerGuess" method="post">
+          </div>
+          <form action="/playerGuess" method="post" id="submit">
             <input type="text" placeholder="Enter a letter here" value="" name="letter">
             <button>I want to guess this letter</button>
 <div class="usedLetters">
+  <h3>Letters guessed: </h3>
   {{#guessedLetters}}
   {{.}}
   {{/guessedLetters}}

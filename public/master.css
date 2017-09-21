@@ -1,0 +1,18 @@
+#wordContainer{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ text-align: center;
+}
+h2{
+  width: 50%;
+}
+header{
+  text-align: center;
+}
+.userLetters{
+  float: right;
+}
+#submit{
+  text-align: center;
+}

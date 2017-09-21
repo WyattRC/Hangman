@@ -104,10 +104,13 @@ app.post("/playerGuess", function(req, res) {
       if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
         turnCount--;
+        if(turnCount === 0){
+          return res.render('lost', {
+            theWord : theWord
+          })
+        }
       }
-
-    }
-
+      }
 
       res.render('games', {
         blankArray: blankArray,
